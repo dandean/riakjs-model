@@ -1,38 +1,12 @@
-riakjs-model
-============
+riakjs-model has been superseded by [Tubbs](http://github.com/dandean/tubbs)
+============================================================================
 
-Provides a model abstraction around [riak-js](http://riakjs.org/).
+**Go check it out!**
 
+http://github.com/dandean/tubbs
 
-Simple Example
---------------
+**Tubbs** has many more features, and abstracts out the Riak connection, allowing
+you to connect your models to any persistence type.
 
-``` javascript
-var Model = require('riakjs-model');
-
-// Create a model
-var TestModel = Model.create({
-  // Define it's properties
-  schema: {
-    dateCreated: Date,
-    dateModified: Date,
-    id: String,
-    name: String
-  },
-  // Bucket for this model's data
-  bucket: "test"
-});
-
-
-var record = new TestModel({
-  name: "test model"
-});
-
-record.save(function(e, result) {
-  console.log("Saved!", result);
-  
-  TestModel.find(result.id, function(e, result) {
-    console.log("Found!", result);
-  });
-});
-```
+If you really need it, you can find the original code for riakjs-model in the
+"original" branch of this repository.
